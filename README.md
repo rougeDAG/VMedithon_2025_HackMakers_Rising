@@ -4,14 +4,14 @@
 
 ## **📜 Table of Contents**
 
-* [The Problem]
-* [Our Solution: A Hardware-First Approach]
-* [⚙️ Hardware Design & Prototyping]
-* [🤖 IoT & System Architecture]
-* [🛠️ Tech Stack]
-* [🎨 3D Assets & Project Status]
-* [📱 Mobile App Setup Guide]
-* [🧠 Machine Learning Integration & Credits]
+* The Proble
+* Our Solution: A Hardware-First Approach
+* ⚙️ Hardware Design & Prototyping
+* 🤖 IoT & System Architecture
+* 🛠️ Tech Stack
+* 🎨 3D Assets & Project Status
+* 📱 Mobile App Setup Guide
+* 🧠 Machine Learning Integration & Credits
 
 ## **🎯 The Problem**
 
