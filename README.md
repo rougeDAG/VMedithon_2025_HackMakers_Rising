@@ -86,7 +86,7 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 
 ## 
 
-## ---
+---
 
 ## **🎨 3D Assets & Project Status**
 
