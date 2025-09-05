@@ -90,12 +90,12 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 ---
 ## **⚙️ AcuDrop Gimbal Mechanism Explained**
 
-###**Labeled Components:**###
+### **Labeled Components:** ###
 1.	Long-Throw Linear Servo: This is the actuator that drives the entire system. Its black slider moves vertically (up and down in this orientation) based on signals from the microcontroller.
 2.	V-Shaped Flaps: These are the two main arms of the gimbal. They are designed to be flexible and rest gently on the user's face, providing a stable frame of reference.
 3.	Flexible Fiber Cloth: This is the "muscle" of the gimbal. It is strung between the two flaps, and the servo's arm is attached to its center. The nozzle of the eye dropper would be mounted to this cloth.
    
-###**How the Mechanism Moves**###
+### **How the Mechanism Moves** ###
 The system works by converting the linear up-and-down motion of the servo into a precise contraction and expansion of the V-flaps, which in turn aims the nozzle.
 A) **Contraction** (Aiming the Nozzle Down)
 1.	Signal: The eye-tracking model determines the nozzle needs to aim lower.
@@ -131,7 +131,7 @@ The 3D models of the AcuDrop device were designed and assembled in Blender. The 
 While the core innovation is the hardware, the Flutter mobile app is required for scheduling and data tracking.
 Our primary goal was to create a codebase that is robust, scalable, and easy to maintain, which we achieved by adhering to Clean Architecture and the SOLID principles.
 
-###**🏛️ What is Clean Architecture?**###
+### **🏛️ What is Clean Architecture?** ###
 Clean Architecture is a way of organizing code into distinct layers to separate concerns. Think of it like the departments in a company: the design team doesn't need to know the specifics of the manufacturing process, they just need a contract for what can be built.
 Our app is divided into three layers:
 **Domain Layer (The Core Rules):** The very center of our application. It holds the business logic and knows what the app does (e.g., a user has a schedule, a dose can be logged), but not how this is accomplished.
@@ -141,24 +141,24 @@ The most important rule is the Dependency Rule: Outer layers can depend on inner
 _Domain <--- Data Domain <--- Presentation_
 This means our core business logic (Domain) could be reused with a completely different UI or database without changing a single line of its code.
 
-###**💎 How We Implemented SOLID Principles**###
+### **💎 How We Implemented SOLID Principles** ###
 SOLID is a set of five design principles that help us write better, more maintainable code. Here's how they apply to the AcuDrop app:
 
 **1. (S) - Single Responsibility Principle**:
 Each class should have only one reason to change.
-Example: UserRepositoryImpl is only responsible for getting and saving user data from Firebase. AuthProvider is only responsible for managing the user's login state. HomeScreen is only responsible for displaying the home screen UI. If we need to change how we fetch data, only the UserRepositoryImpl changes; the UI remains untouched.
+Example: _UserRepositoryImpl_ is only responsible for getting and saving user data from Firebase. _AuthProvider_ is only responsible for managing the user's login state. _HomeScreen_ is only responsible for displaying the home screen UI. If we need to change how we fetch data, only the _UserRepositoryImpl_ changes; the UI remains untouched.
 
 **2. (O) - Open/Closed Principle**
 Software entities should be open for extension, but closed for modification.
-Example: Our UI code depends on the UserRepository contract (the abstract class). Right now, we are "extending" it with a _UserRepositoryImpl_ that uses Firebase. If we wanted to add offline support later, we could create a new _UserRepositoryLocalImpl_ that also fulfills the contract. We can add new functionality without ever modifying the original, tested code.
+Example: Our UI code depends on the _UserRepository_ contract (the abstract class). Right now, we are "extending" it with a _UserRepositoryImpl_ that uses Firebase. If we wanted to add offline support later, we could create a new _UserRepositoryLocalImpl_ that also fulfills the contract. We can add new functionality without ever modifying the original, tested code.
 
 **3. (L) - Liskov Substitution Principle**
 Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
-Example: The HomeScreen requires a UserRepository. Because UserRepositoryImpl is a valid subtype of UserRepository, we can provide it, and the app works. Any other implementation we create in the future will also work, as long as it follows the same contract.
+Example: The _HomeScreen_ requires a _UserRepository_. Because _UserRepositoryImpl_ is a valid subtype of _UserRepository_, we can provide it, and the app works. Any other implementation we create in the future will also work, as long as it follows the same contract.
 
 **4. (I) - Interface Segregation Principle**
 Clients should not be forced to depend on methods they do not use.
-Example: We created two separate contracts: _AuthRepository_ and _UserRepository_. We didn't create one giant _FirebaseRepository_ with both authentication and user data methods. This is because the ProfileScreen needs user data but has no need for login or sign-up functions. It only depends on the UserRepository interface, keeping it clean and focused.
+Example: We created two separate contracts: _AuthRepository_ and _UserRepository_. We didn't create one giant _FirebaseRepository_ with both authentication and user data methods. This is because the _ProfileScreen_ needs user data but has no need for login or sign-up functions. It only depends on the _UserRepository_ interface, keeping it clean and focused.
 
 **5. (D) - Dependency Inversion Principle**
 High-level modules should not depend on low-level modules. Both should depend on abstractions.
