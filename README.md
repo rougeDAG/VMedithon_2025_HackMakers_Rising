@@ -90,7 +90,7 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 ---
 ## **⚙️ AcuDrop Gimbal Mechanism Explained**
 
-E##**Labeled Components:**###
+###**Labeled Components:**###
 1.	Long-Throw Linear Servo: This is the actuator that drives the entire system. Its black slider moves vertically (up and down in this orientation) based on signals from the microcontroller.
 2.	V-Shaped Flaps: These are the two main arms of the gimbal. They are designed to be flexible and rest gently on the user's face, providing a stable frame of reference.
 3.	Flexible Fiber Cloth: This is the "muscle" of the gimbal. It is strung between the two flaps, and the servo's arm is attached to its center. The nozzle of the eye dropper would be mounted to this cloth.
