@@ -1,6 +1,7 @@
 # **AcuDrop \- Smart Eye Drop Assistant**
 
 Hackathon project made by [Krithik Raghavendar](https://github.com/KrithikRaghavendar), [Hari](https://github.com/rougeDAG), Mithiiren T, and Raagul
+
 **AcuDrop** is a comprehensive solution designed to empower patients, particularly the elderly and those with dexterity challenges, to manage their eye drop medication with confidence and precision. This hackathon project combines a smart hardware cap, a feature-rich mobile application, and AI-powered analytics to improve medication adherence and facilitate better communication between patients and doctors.
 
 ---
