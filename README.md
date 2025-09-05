@@ -2,6 +2,8 @@
 
 **AcuDrop** is a comprehensive solution designed to empower patients, particularly the elderly and those with dexterity challenges, to manage their eye drop medication with confidence and precision. This hackathon project combines a smart hardware cap, a feature-rich mobile application, and AI-powered analytics to improve medication adherence and facilitate better communication between patients and doctors.
 
+---
+
 ## **📜 Table of Contents**
 
 * [The Problem](https://www.google.com/search?q=https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md%23-the-problem)  
@@ -11,7 +13,12 @@
 * [🛠️ Tech Stack](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-tech-stack)  
 * [🎨 3D Assets & Project Status](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-3d-assets--project-status)  
 * [📱 Mobile App Setup Guide](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-mobile-app-setup-guide)  
-* [🧠 Machine Learning Integration & Credits](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-machine-learning-integration--credits)
+* [🧠 Machine Learning Integration & Credits](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-machine-learning-integration--credits)  
+* 
+
+---
+
+* 
 
 ## **🎯 The Problem**
 
@@ -20,6 +27,8 @@ Administering eye drops can be a significant challenge for many individuals. Dif
 ## **💡 Our Solution: A Hardware-First Approach**
 
 AcuDrop tackles these physical challenges with a custom-designed, IoT-enabled smart cap that automates the most difficult parts of administering eye drops. The device is designed to be ergonomic, reusable, and intuitive. It connects via Bluetooth to a companion mobile app for tracking and scheduling, but its primary function is to provide physical assistance.
+
+---
 
 ## **⚙️ Hardware Design & Prototyping**
 
@@ -56,6 +65,8 @@ To solve the problem of dispensing too much medication, we integrated a high-tec
   * **Piezoelectric Micropump:** Dispenses a single, accurate fluid dose.  
 * **Power:** A rechargeable **5V Lithium-Ion battery**. The device remains in a low-power state and only establishes a full connection with the app when required (e.g., syncing dose history or updating schedules), maximizing battery life.
 
+---
+
 ## **🤖 IoT & System Architecture**
 
 The device operates as a Wi-Fi peripheral, communicating its status to the Flutter mobile app on-demand.
@@ -73,6 +84,10 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 | **Backend** | Firebase (Authentication, Cloud Firestore) |
 | **3D Prototyping** | Blender, Python Scripting |
 
+## 
+
+## ---
+
 ## **🎨 3D Assets & Project Status**
 
 The 3D models of the AcuDrop device were designed and assembled in Blender. The Python scripts used to generate the internal components are included in the 3d\_assets/source\_files directory.
@@ -82,6 +97,8 @@ The 3D models of the AcuDrop device were designed and assembled in Blender. The 
 * A complete outer housing for the device.  
 * The physical "self-medicate" button.  
 * The battery charging port and circuitry.
+
+---
 
 ## **📱 Mobile App Setup Guide**
 
@@ -101,6 +118,10 @@ The app requires a Firebase backend. Follow the setup guide in the flutter\_app 
 Connect an emulator or device and run the app from the flutter\_app directory:
 
 flutter run
+
+## 
+
+## ---
 
 ## **🧠 Machine Learning Integration & Credits**
 
