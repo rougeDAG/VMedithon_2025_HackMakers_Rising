@@ -4,13 +4,13 @@
 
 ## **📜 Table of Contents**
 
-* The Proble
-* Our Solution: A Hardware-First Approach
-* ⚙️ Hardware Design & Prototyping
-* 🤖 IoT & System Architecture
-* 🛠️ Tech Stack
-* 🎨 3D Assets & Project Status
-* 📱 Mobile App Setup Guide
+* The Problem  
+* Our Solution: A Hardware-First Approach  
+* ⚙️ Hardware Design & Prototyping  
+* 🤖 IoT & System Architecture  
+* 🛠️ Tech Stack  
+* 🎨 3D Assets & Project Status  
+* 📱 Mobile App Setup Guide  
 * 🧠 Machine Learning Integration & Credits
 
 ## **🎯 The Problem**
@@ -48,7 +48,12 @@ To solve the problem of dispensing too much medication, we integrated a high-tec
 ### **3\. Electronic Components**
 
 * **Microcontroller:** **ESP8266**. We chose this efficient and cost-effective microcontroller for its reliability and built-in Wi-Fi, which is used for on-demand communication with the mobile app to conserve power.  
-* **Sensors:** An **MPU-6050** for initial orientation and data from the eye-tracking camera feed.  
+* **Sensors:**  
+  * **Camera Module:** A small camera provides the video feed for the eye-tracking model.  
+  * **MPU-6050:** For initial orientation and stability data.  
+* **Actuators:**  
+  * **Long Throw Linear Servo:** Controls the gimbal mechanism with high precision.  
+  * **Piezoelectric Micropump:** Dispenses a single, accurate fluid dose.  
 * **Power:** A rechargeable **5V Lithium-Ion battery**. The device remains in a low-power state and only establishes a full connection with the app when required (e.g., syncing dose history or updating schedules), maximizing battery life.
 
 ## **🤖 IoT & System Architecture**
@@ -63,10 +68,7 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 
 | Category | Technology |
 | :---- | :---- |
-| **Microcontroller** | ESP8266 |
-| **Pump** | Piezoelectric Diaphragm Micropump |
-| **Sensors** | MPU-6050 (Gyro/Accel) |
-| **Actuators** | Linear Servo Motor |
+| **Electronics** | ESP8266, MPU-6050, Long Throw Linear Servo, Piezoelectric Micropump |
 | **Mobile App** | Flutter, Dart, Provider |
 | **Backend** | Firebase (Authentication, Cloud Firestore) |
 | **3D Prototyping** | Blender, Python Scripting |
@@ -99,6 +101,7 @@ The app requires a Firebase backend. Follow the setup guide in the flutter\_app 
 Connect an emulator or device and run the app from the flutter\_app directory:
 
 flutter run
+
 
 ## **🧠 Machine Learning Integration & Credits**
 
