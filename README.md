@@ -11,7 +11,7 @@
 * [⚙️ Hardware Design & Prototyping](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-hardware-design--prototyping)  
 * [🤖 IoT & System Architecture](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-iot--system-architecture)  
 * [🛠️ Tech Stack](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-tech-stack)
-* [⚙️ AcuDrop Gimbal Mechanism Explained]
+* [⚙️ AcuDrop Gimbal Mechanism Explained](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-acudrop-gimbal-mechanism-explained)
 * [🎨 3D Assets & Project Status](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-3d-assets--project-status)  
 * [📱 Mobile App Setup Guide](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-mobile-app-setup-guide)  
 * [🧠 Machine Learning Integration & Credits](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-machine-learning-integration--credits)  
@@ -90,24 +90,27 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 ---
 ## **⚙️ AcuDrop Gimbal Mechanism Explained**
 
-#**Labeled Components:**#
+E##**Labeled Components:**###
 1.	Long-Throw Linear Servo: This is the actuator that drives the entire system. Its black slider moves vertically (up and down in this orientation) based on signals from the microcontroller.
 2.	V-Shaped Flaps: These are the two main arms of the gimbal. They are designed to be flexible and rest gently on the user's face, providing a stable frame of reference.
 3.	Flexible Fiber Cloth: This is the "muscle" of the gimbal. It is strung between the two flaps, and the servo's arm is attached to its center. The nozzle of the eye dropper would be mounted to this cloth.
    
-#**How the Mechanism Moves**#
+###**How the Mechanism Moves**###
 The system works by converting the linear up-and-down motion of the servo into a precise contraction and expansion of the V-flaps, which in turn aims the nozzle.
 A) **Contraction** (Aiming the Nozzle Down)
 1.	Signal: The eye-tracking model determines the nozzle needs to aim lower.
 2.	Actuation: The microcontroller tells the Long-Throw Linear Servo (1) to EXTEND its arm (move UP).
 3.	Movement: As the servo arm moves up, it pushes the center of the Flexible Fiber Cloth (3) upwards. This increased tension pulls the tips of the V-Shaped Flaps (2) inwards, causing them to CONTRACT or move closer together.
 4.	Result: The nozzle, which is mounted on the cloth, is tilted downwards, precisely aiming the drop.
-B) **Expansion** (Aiming the Nozzle Up)
+B)  **Expansion** (Aiming the Nozzle Up)
 1.	Signal: The eye-tracking model determines the nozzle needs to aim higher.
 2.	Actuation: The microcontroller tells the Long-Throw Linear Servo (1) to RETRACT its arm (move DOWN).
 3.	Movement: As the servo arm moves down, it pulls the center of the Flexible Fiber Cloth (3) downwards. This releases tension on the V-Shaped Flaps (2), allowing them to EXPAND or move apart.
 4.	Result: The nozzle, mounted on the cloth, is tilted upwards.
 This elegant push-pull system, happening in fractions of a second, allows the device to make continuous, minute adjustments to ensure the eye drop is delivered perfectly every time. A similar mechanism would control the left-right movement to complete the 2-axis aiming system.
+
+<img width="1843" height="690" alt="image" src="https://github.com/user-attachments/assets/31ec9a7a-2b0a-427b-a4b5-542acf993bbc" />
+
 
 ---
 
@@ -126,6 +129,43 @@ The 3D models of the AcuDrop device were designed and assembled in Blender. The 
 ## **📱 Mobile App Setup Guide**
 
 While the core innovation is the hardware, the Flutter mobile app is required for scheduling and data tracking.
+Our primary goal was to create a codebase that is robust, scalable, and easy to maintain, which we achieved by adhering to Clean Architecture and the SOLID principles.
+
+###**🏛️ What is Clean Architecture?**###
+Clean Architecture is a way of organizing code into distinct layers to separate concerns. Think of it like the departments in a company: the design team doesn't need to know the specifics of the manufacturing process, they just need a contract for what can be built.
+Our app is divided into three layers:
+**Domain Layer (The Core Rules):** The very center of our application. It holds the business logic and knows what the app does (e.g., a user has a schedule, a dose can be logged), but not how this is accomplished.
+**Data Layer (The Implementation):** This layer knows how to get and store data. It implements the rules defined in the Domain layer. This is where all the Firebase code lives.
+**Presentation Layer (The User Interface):** This is everything the user sees and interacts with. It's the Flutter part of the app.
+The most important rule is the Dependency Rule: Outer layers can depend on inner layers, but inner layers cannot know anything about the outer layers.
+_Domain <--- Data Domain <--- Presentation_
+This means our core business logic (Domain) could be reused with a completely different UI or database without changing a single line of its code.
+
+###**💎 How We Implemented SOLID Principles**###
+SOLID is a set of five design principles that help us write better, more maintainable code. Here's how they apply to the AcuDrop app:
+
+**1. (S) - Single Responsibility Principle**:
+Each class should have only one reason to change.
+Example: UserRepositoryImpl is only responsible for getting and saving user data from Firebase. AuthProvider is only responsible for managing the user's login state. HomeScreen is only responsible for displaying the home screen UI. If we need to change how we fetch data, only the UserRepositoryImpl changes; the UI remains untouched.
+
+**2. (O) - Open/Closed Principle**
+Software entities should be open for extension, but closed for modification.
+Example: Our UI code depends on the UserRepository contract (the abstract class). Right now, we are "extending" it with a _UserRepositoryImpl_ that uses Firebase. If we wanted to add offline support later, we could create a new _UserRepositoryLocalImpl_ that also fulfills the contract. We can add new functionality without ever modifying the original, tested code.
+
+**3. (L) - Liskov Substitution Principle**
+Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+Example: The HomeScreen requires a UserRepository. Because UserRepositoryImpl is a valid subtype of UserRepository, we can provide it, and the app works. Any other implementation we create in the future will also work, as long as it follows the same contract.
+
+**4. (I) - Interface Segregation Principle**
+Clients should not be forced to depend on methods they do not use.
+Example: We created two separate contracts: _AuthRepository_ and _UserRepository_. We didn't create one giant _FirebaseRepository_ with both authentication and user data methods. This is because the ProfileScreen needs user data but has no need for login or sign-up functions. It only depends on the UserRepository interface, keeping it clean and focused.
+
+**5. (D) - Dependency Inversion Principle**
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Example: This is the heart of our Clean Architecture. The high-level UI (Presentation layer) does not directly depend on the low
+
+<img width="1242" height="874" alt="image" src="https://github.com/user-attachments/assets/ec893241-8d69-40e0-86f1-bc261e58cc45" />
+
 
 ### **Step 1: Connect to Firebase**
 
