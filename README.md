@@ -4,14 +4,14 @@
 
 ## **📜 Table of Contents**
 
-* The Problem  
-* Our Solution: A Hardware-First Approach  
-* ⚙️ Hardware Design & Prototyping  
-* 🤖 IoT & System Architecture  
-* 🛠️ Tech Stack  
-* 🎨 3D Assets & Project Status  
-* 📱 Mobile App Setup Guide  
-* 🧠 Machine Learning Integration & Credits
+* [The Problem](https://www.google.com/search?q=https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md%23-the-problem)  
+* [Our Solution: A Hardware-First Approach](https://www.google.com/search?q=https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md%23-our-solution-a-hardware-first-approach)  
+* [⚙️ Hardware Design & Prototyping](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-hardware-design--prototyping)  
+* [🤖 IoT & System Architecture](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-iot--system-architecture)  
+* [🛠️ Tech Stack](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-tech-stack)  
+* [🎨 3D Assets & Project Status](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-3d-assets--project-status)  
+* [📱 Mobile App Setup Guide](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-mobile-app-setup-guide)  
+* [🧠 Machine Learning Integration & Credits](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-machine-learning-integration--credits)
 
 ## **🎯 The Problem**
 
@@ -102,7 +102,6 @@ Connect an emulator or device and run the app from the flutter\_app directory:
 
 flutter run
 
-
 ## **🧠 Machine Learning Integration & Credits**
 
 Our project's AI capabilities are built upon the excellent work of the open-source community. We gratefully acknowledge the following projects which serve as the foundation for our eye-tracking and disease-detection features.
@@ -118,5 +117,5 @@ Our project's AI capabilities are built upon the excellent work of the open-sour
 
 * **Project:** Eyes-disease-detector  
 * **Author:** [shivansh00011](https://github.com/shivansh00011)  
-* **Repository:** [https://github.com/shivansh00011/Eyes-disease-detector](https://www.google.com/search?q=https://github.com/shivansh00011/Eyes-disease-detector)  
+* **Repository:** [https://github.com/shivansh00011/Eyes-disease-detector](https://github.com/shivansh00011/Eyes-disease-detector)  
 * **Usage:** This model is the basis for our eye redness analysis feature. The app captures an image of the eye just before dispensing a dose and uses this model to provide a preliminary analysis score. This data is logged and can be shared with a doctor to track treatment progress over time.
