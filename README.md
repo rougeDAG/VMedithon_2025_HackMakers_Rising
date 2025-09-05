@@ -167,20 +167,52 @@ Example: This is the heart of our Clean Architecture. The high-level UI (Present
 <img width="1242" height="874" alt="image" src="https://github.com/user-attachments/assets/ec893241-8d69-40e0-86f1-bc261e58cc45" />
 
 
-### **Step 1: Connect to Firebase**
+### **Prerequisites**
 
-The app requires a Firebase backend. Follow the setup guide in the flutter\_app directory to:
+* Flutter SDK installed.  
+* An editor like VS Code or Android Studio.  
+* Node.js and npm (for installing the Firebase CLI).
 
-1. Create a Firebase project.  
-2. Run flutterfire configure to link the app.  
-3. Enable Authentication and Firestore services.  
-4. Set up the necessary Firestore security rules and indexes as prompted by the app's error logs on first run.
+### **Step 1: Clone the Repository & Get Dependencies**
 
-### **Step 2: Run the App**
+1. **Clone the repo:**  
+   _git clone \[https://github.com/rougeDAG/VMedithon\_2025\_HackMakers\_Rising.git\](https://github.com/rougeDAG/VMedithon\_2025\_HackMakers\_Rising.git)_
 
-Connect an emulator or device and run the app from the flutter\_app directory:
+2. **Navigate into the Flutter app directory:**  
+   _cd VMedithon\_2025\_HackMakers\_Rising/flutter\_app_
 
-flutter run
+3. **Install all the required packages:**  
+   _flutter pub get_
+
+### **Step 2: Connect to Firebase (Crucial)**
+
+This app requires a Firebase backend to function.
+
+1. **Create a Firebase Project:** Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.  
+2. **Install Firebase Tools:** If you haven't already, install the necessary command-line tools.  
+_   npm install \-g firebase-tools  
+   firebase login  
+   dart pub global activate flutterfire\_cli_
+
+3. **Configure Flutter App:** From the flutter\_app directory, run the configuration tool. It will ask you to select the Firebase project you just created.  
+   _flutterfire configure_
+
+   This command will generate the _lib/firebase\_options.dart_ file, which contains your project's unique Firebase keys.  
+4. **Enable Firebase Services:**  
+   * In the Firebase Console, go to **Authentication** \-\> **Sign-in method** and enable the **Email/Password** provider.  
+   * Go to **Firestore Database**, click **Create database**, and start in **Test Mode**.  
+5. **Set Up Firestore Security Rules:**  
+   * In the Firestore Database section, click on the **Rules** tab.  
+   * Replace the default rules with the secure rules provided in the project. This is critical to allow users to access their own data.  
+6. **Create Firestore Index:**  
+   * The first time you run the app after logging in, the debug console will show a _FAILED\_PRECONDITION_ error with a long URL.  
+   * **You must click this URL.** It will take you to the Google Cloud console with the required index pre-configured. Just click the **"Create Index"** button. This may take a few minutes to build.
+
+### **Step 3: Run the App**
+
+Connect an Android emulator or a physical device and run the application:
+
+_flutter run  _
 
 
 
