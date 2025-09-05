@@ -1,3 +1,7 @@
+# Run this in Google Colab for checking with the code
+# To be implemented and connected with device so that the data obtained from eye tracking can be used to move the nozzle
+
+
 import cv2
 import mediapipe as mp
 
@@ -65,3 +69,4 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
