@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "962549560222",
+    "project_id": "acudrop-71231",
+    "storage_bucket": "acudrop-71231.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962549560222:android:ea4d82cf837a3bc60e5c8f",
+        "android_client_info": {
+          "package_name": "com.example.acudrop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw_9LPT5NrHBPkKSDfMxsqI4O85oUsKKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
