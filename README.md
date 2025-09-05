@@ -10,7 +10,8 @@
 * [Our Solution: A Hardware-First Approach](https://www.google.com/search?q=https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md%23-our-solution-a-hardware-first-approach)  
 * [⚙️ Hardware Design & Prototyping](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-hardware-design--prototyping)  
 * [🤖 IoT & System Architecture](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-iot--system-architecture)  
-* [🛠️ Tech Stack](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-tech-stack)  
+* [🛠️ Tech Stack](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#%EF%B8%8F-tech-stack)
+* [⚙️ AcuDrop Gimbal Mechanism Explained]
 * [🎨 3D Assets & Project Status](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-3d-assets--project-status)  
 * [📱 Mobile App Setup Guide](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-mobile-app-setup-guide)  
 * [🧠 Machine Learning Integration & Credits](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-machine-learning-integration--credits)  
@@ -85,6 +86,28 @@ The ESP8266 firmware handles all real-time sensor reading and motor/pump control
 | **3D Prototyping** | Blender, Python Scripting |
 
 ## 
+
+---
+## **⚙️ AcuDrop Gimbal Mechanism Explained**
+
+#**Labeled Components:**#
+1.	Long-Throw Linear Servo: This is the actuator that drives the entire system. Its black slider moves vertically (up and down in this orientation) based on signals from the microcontroller.
+2.	V-Shaped Flaps: These are the two main arms of the gimbal. They are designed to be flexible and rest gently on the user's face, providing a stable frame of reference.
+3.	Flexible Fiber Cloth: This is the "muscle" of the gimbal. It is strung between the two flaps, and the servo's arm is attached to its center. The nozzle of the eye dropper would be mounted to this cloth.
+   
+#**How the Mechanism Moves**#
+The system works by converting the linear up-and-down motion of the servo into a precise contraction and expansion of the V-flaps, which in turn aims the nozzle.
+A) **Contraction** (Aiming the Nozzle Down)
+1.	Signal: The eye-tracking model determines the nozzle needs to aim lower.
+2.	Actuation: The microcontroller tells the Long-Throw Linear Servo (1) to EXTEND its arm (move UP).
+3.	Movement: As the servo arm moves up, it pushes the center of the Flexible Fiber Cloth (3) upwards. This increased tension pulls the tips of the V-Shaped Flaps (2) inwards, causing them to CONTRACT or move closer together.
+4.	Result: The nozzle, which is mounted on the cloth, is tilted downwards, precisely aiming the drop.
+B) **Expansion** (Aiming the Nozzle Up)
+1.	Signal: The eye-tracking model determines the nozzle needs to aim higher.
+2.	Actuation: The microcontroller tells the Long-Throw Linear Servo (1) to RETRACT its arm (move DOWN).
+3.	Movement: As the servo arm moves down, it pulls the center of the Flexible Fiber Cloth (3) downwards. This releases tension on the V-Shaped Flaps (2), allowing them to EXPAND or move apart.
+4.	Result: The nozzle, mounted on the cloth, is tilted upwards.
+This elegant push-pull system, happening in fractions of a second, allows the device to make continuous, minute adjustments to ensure the eye drop is delivered perfectly every time. A similar mechanism would control the left-right movement to complete the 2-axis aiming system.
 
 ---
 
