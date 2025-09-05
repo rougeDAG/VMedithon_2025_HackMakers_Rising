@@ -14,7 +14,7 @@
 * [🎨 3D Assets & Project Status](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-3d-assets--project-status)  
 * [📱 Mobile App Setup Guide](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-mobile-app-setup-guide)  
 * [🧠 Machine Learning Integration & Credits](https://github.com/rougeDAG/VMedithon_2025_HackMakers_Rising/blob/main/README.md#-machine-learning-integration--credits)  
-* 
+ 
 
 ---
 
