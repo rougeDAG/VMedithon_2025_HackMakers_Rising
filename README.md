@@ -119,9 +119,9 @@ Connect an emulator or device and run the app from the flutter\_app directory:
 
 flutter run
 
-## 
 
-## ---
+
+---
 
 ## **🧠 Machine Learning Integration & Credits**
 
